@@ -13,7 +13,8 @@ Feature: Create a new user
     Given I am on the "root" page
     When I select "Create a new user"
     Then I fill in the following fields:
-    | Email                    | Password     | Password confirmation |
-    | testuser@validdomain.com | testpassword | testpassword          |
-    
-    Then the user should be created successfully
+    | Email                 | testuser@validdomain.com |
+    | Password              | testpassword             |
+    | Password confirmation | testpassword             |
+    Then I click the "Register" button    
+    Then the user "testuser@validdomain.com" should be created successfully

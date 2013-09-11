@@ -24,9 +24,9 @@ Login a user with a password that is too long
 
 Create
 
-Create a user page should load successfully
+Create a user page should load successfully - DONE - Cucumber
 
-Create a valid user
+Create a valid user - DONE - Cucumber
 
 Create a user with no login details
 

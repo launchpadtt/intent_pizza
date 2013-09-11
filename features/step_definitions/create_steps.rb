@@ -14,8 +14,21 @@ Then /^I should be on the "(.*?)" page$/ do |text|
   end
 end
 
-Then /^I fill in the following fields:$/ do |table|
+When /^I fill in "(.*?)" with "(.*?)"$/ do |field, value|
+  fill_in(field, :with => value)
+end
+
+Then /^I fill in the following fields:$/ do |fields|
   fields.rows_hash.each do |name, value|
     When %{I fill in "#{name}" with "#{value}"}
   end
+end
+
+Then /^I click the "(.*?)" button$/ do |button|
+  click_button(button)
+end
+
+Then /^the user "(.*?)" should be created successfully$/ do |email_address|
+  @user = User.where(:email => email_address)
+  assert !@user.empty?
 end
