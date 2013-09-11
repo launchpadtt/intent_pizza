@@ -1,0 +1,45 @@
+Test Plan
+
+Login
+
+Login User Page should load successfully
+
+Login a valid user
+
+Login a user with no login details
+
+Login a user with no password
+
+Login a user with no e-mail address
+
+Login a user with a user that doesn't exist
+
+Login a user with an invalid password
+
+Login a user with an invalid e-mail address
+
+Login a user with an e-mail address that is too long
+
+Login a user with a password that is too long
+
+Create
+
+Create a user page should load successfully
+
+Create a valid user
+
+Create a user with no login details
+
+Create a user with an invalid e-mail address
+
+Create a user with an invalid password
+
+Create a user with no e-mail address
+
+Create a user with no password
+
+Create a user with an e-mail address that is too long
+
+Create a user with a password that is too long
+
+
