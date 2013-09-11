@@ -28,9 +28,9 @@ Create a user page should load successfully - DONE - Cucumber
 
 Create a valid user - DONE - Cucumber
 
-Create a user with no login details
+Create a user with no login details - DONE - Cucumber
 
-Create a user with an invalid e-mail address
+Create a user with an invalid e-mail address - DONE - Cucumber
 
 Create a user with an invalid password
 
@@ -42,4 +42,10 @@ Create a user with an e-mail address that is too long
 
 Create a user with a password that is too long
 
+Create a user with an e-mail address that is too short
 
+Create a user with a password that is too short
+
+Creating a new user after having already created a new user
+
+Account
