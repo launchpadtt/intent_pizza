@@ -6,7 +6,7 @@ When /^I select "(.*?)"$/ do |link|
   click_link(link)
 end
 
-Then /^I should see "(.*?)" on the page$/ do |text|
+Then /^I should see "([^"]*?)" on the page$/ do |text|
   if page.respond_to? :should
     page.should have_content(text)
   else
@@ -41,7 +41,6 @@ When /^I visit "(.*?)" page$/ do |page_name|
   visit page_name
 end
 
-
 Then /^the user "(.*?)" should be created successfully$/ do |email_address|
   @user = User.where(:email => email_address)
   assert !@user.empty?
@@ -51,3 +50,4 @@ Then /^the user "(.*?)" should not be created successfully$/ do |email_address|
   @user = User.where(:email => email_address)
   assert @user.empty?
 end
+
