@@ -32,11 +32,13 @@ Create a user with no login details - DONE - Cucumber
 
 Create a user with an invalid e-mail address - DONE - Cucumber
 
-Create a user with an invalid password
+Create a user with an invalid password - decided against it since there really shouldn't be any invalid password characters
 
-Create a user with no e-mail address
+Create a user with no e-mail address - DONE - Cucumber
 
-Create a user with no password
+Create a user with no password - DONE - Cucumber
+
+Create a user whose e-mail address and password are the same
 
 Create a user with an e-mail address that is too long
 
