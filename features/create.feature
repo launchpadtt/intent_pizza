@@ -143,3 +143,32 @@ Feature: Create a new user
       And I should see "Password doesn't match confirmation" on the page
       #And I should be on the "users/new" page 
 
+  Scenario: Visiting create a new user page after having already created a new user
+    Given I am on the "root" page
+    When I select "Create a new user"
+      And I fill in the following fields:
+      | Email                 | first_user@test.com |
+      | Password              | testpassword        |
+      | Password confirmation | testpassword        |
+      And I click the "Register" button
+      And I visit "/" page
+      And I select "Create a new user"
+    Then I should be on the "users/new" page 
+
+  Scenario: Create a user with the same e-mail address twice
+    Given I am on the "root" page
+    When I select "Create a new user"
+      And I fill in the following fields:
+      | Email                 | first_user@test.com |
+      | Password              | testpassword        |
+      | Password confirmation | testpassword        |
+      And I click the "Register" button
+      And I visit "/" page
+      And I select "Create a new user"
+      And I fill in the following fields:
+      | Email                 | first_user@test.com |
+      | Password              | testpassword        |
+      | Password confirmation | testpassword        |
+      And I click the "Register" button
+    Then I should see "Email has already been taken" on the page
+    

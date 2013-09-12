@@ -37,6 +37,11 @@ Then /^I click the "(.*?)" button$/ do |button|
   click_button(button)
 end
 
+When /^I visit "(.*?)" page$/ do |page_name|
+  visit page_name
+end
+
+
 Then /^the user "(.*?)" should be created successfully$/ do |email_address|
   @user = User.where(:email => email_address)
   assert !@user.empty?

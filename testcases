@@ -50,7 +50,7 @@ Create a user with a password that is too short - DONE - Cucumber
 
 Create a user where the password and password confirmation are different - DONE - Cucumber
 
-Creating a new user after having already created a new user
+Visiting create a new user page after having already created a new user
 
 Create a user with the same e-mail address twice
 
