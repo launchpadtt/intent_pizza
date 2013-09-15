@@ -34,11 +34,24 @@ Then /^The unordered pizza should be created$/ do |fields|
   fields.rows_hash.each do |name, value|
     step %{I should see "#{name}: #{value}" on the page}
   end
-  #<td>#{pizza_name}<\/td>\s*<td>#{pizza_size}<\/td>\s*<td>#{toppings_no}<\/td>\s*<td>#{ordered}
 end
 
 Then /^I order the pizza$/ do
   step %{I select "Order this pizza"}
+end
+
+Given /^I add a topping name "(.*?)" with double set to "(.*?)"$/ do |name, double|
+  step %{I select "Add toppings"}
+  step %{I fill in "Name" with "#{name}"}
+  if double == "true"
+    check "Double order"
+  end
+  step %{I click the "Create" button} 
+end
+
+Then /^the topping named "(.*?)" with double order "(.*?)" should be added to order details$/ do |name, double|
+  assert page.body.match(/Name.*Double order/m)
+  assert page.body.match(/<td>#{name}<\/td>\s*<td>#{double}/m)
 end
 
 Then /^the pizza named "(.*?)" with the size of "(.*?)", "(.*?)" toppings ordered and ordered status of "(.*?)" should have been ordered$/ do |pizza_name, pizza_size, toppings_no, ordered|
@@ -54,3 +67,11 @@ end
 Then /^I should NOT see two pizzas named "(.*?)" with a size of "(.*?)", "(.*?)" toppings ordered and ordered status of "(.*?)"$/ do |pizza_name, pizza_size, toppings_no, ordered|
   assert page.body.scan(/<td>#{pizza_name}<\/td>\s*<td>#{pizza_size}<\/td>\s*<td>#{toppings_no}<\/td>\s*<td>#{ordered}/m).count == 1
 end
+
+Then /^(I )?(O|o)rder a valid pizza$/ do |arg1, arg2|
+  step "I order a pizza with the following information", table(%{
+      | Name | Pizza 1   |  
+      | Size | 30 inches |})
+  step %{the pizza named "Pizza 1" with the size of "30 inches", "0" toppings ordered and ordered status of "true" should have been ordered}
+end
+

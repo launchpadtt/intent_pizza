@@ -49,5 +49,17 @@ Feature: Order a pizza
     Then the pizza named "Pizza Unordered" with the size of "25 inches", "0" toppings ordered and ordered status of "false" should have been ordered
 
   Scenario: Order a pizza with toppings
-
-  
+    Given I create an unordered pizza with the following information
+      | Name | Pizza with toppings |
+      | Size | 15 inches           |
+    When I add a topping name "Anchovies" with double set to "true"
+    Then the topping named "Anchovies" with double order "true" should be added to order details
+    When I select "All orders"
+    Then the pizza named "Pizza with toppings" with the size of "15 inches", "1" toppings ordered and ordered status of "false" should have been ordered
+      
+  Scenario: One user should not be able to see another users pizzas
+    Given I order a valid pizza
+      And I login with a different user after having already logged in
+      And I select "Show ordered pizzas"
+    Then the pizza named "Pizza 1" with the size of "30 inches", "0" toppings ordered and ordered status of "true" should NOT have been ordered
+      
