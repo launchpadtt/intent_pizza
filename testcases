@@ -2,25 +2,27 @@ Test Plan
 
 Login
 
-Login User Page should load successfully
+Login User Page should load successfully - DONE - Cucumber
 
-Login a valid user
+Login a valid user - DONE - Cucumber
 
-Login a user with no login details
+Login a user with no login details - DONE - Cucumber
 
-Login a user with no password
+Login a user with no password - DONE - Cucumber
 
-Login a user with no e-mail address
+Login a user with no e-mail address - DONE - Cucumber
 
-Login a user with a user that doesn't exist
+Login a user with a user that doesn't exist - DONE - Cucumber
 
-Login a user with an invalid password
+Login a user with an invalid password - There really should be invalid password characters, so not applicable. - DONE - Cucumber
 
-Login a user with an invalid e-mail address
+Login a user with an invalid e-mail address - DONE - Cucumber
 
-Login a user with an e-mail address that is too long
+Login a user with an e-mail address that is too long - DONE - Cucumber
 
-Login a user with a password that is too long
+Login a user with a password that is too long - DONE - Cucumber
+
+Login with a different user after already having logged in
 
 Create
 
