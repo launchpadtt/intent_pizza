@@ -56,4 +56,23 @@ Visiting create a new user page after having already created a new user - DONE -
 
 Create a user with the same e-mail address twice - DONE - Cucumber
 
-Account
+Pizza Ordering
+
+Ordering a valid pizza
+
+Ordering a pizza with no information
+
+Ordering a pizza with no name
+
+Ordering a pizza with no size
+
+Ordering a pizza with an invalid size
+
+Ordering a pizza with the same name as an existing pizza order
+
+Editing Pizza Orders
+
+
+
+Edit Account
+
