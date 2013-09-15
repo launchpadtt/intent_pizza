@@ -17,3 +17,11 @@ Then /^I create a user with the following information$/ do |fields|
   step %{I click the "Register" button}    
 end
 
+Given /^I created a valid user$/ do
+  step "I create a user with the following information", table(%{
+    | Email                 | testuser@validdomain.com |
+    | Password              | testpassword             |
+    | Password confirmation | testpassword             |
+  })
+end
+

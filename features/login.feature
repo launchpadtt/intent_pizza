@@ -20,13 +20,7 @@ Feature: Login to your pizzas
     Then I should be logged in with the user "testuser@validdomain.com"
 
   Scenario: Login with a different user after already having logged in
-  	Given I create a user with the following information
-  	  | Email                 | secondtestuser@validdomain.com |
-  	  | Password              | secondtestpassword             |
-  	  | Password confirmation | secondtestpassword             |
-  	  And I login with the following information:
-  	    | Email    | testuser@validdomain.com |
-  	    | Password | testpassword             |
+    Given I login with a different user after having already logged in
   	Then I should be logged in with the user "secondtestuser@validdomain.com"
 
   Scenario: Login a user with no login details

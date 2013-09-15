@@ -9,9 +9,7 @@ Feature: Order a pizza
       And I logged in with the valid user
   
   Scenario: Order a valid pizza
-    Given I order a pizza with the following information
-      | Name | Pizza 1   |  
-      | Size | 30 inches |
+    Given I order a valid pizza
     Then the pizza named "Pizza 1" with the size of "30 inches", "0" toppings ordered and ordered status of "true" should have been ordered
   
   Scenario: Order a pizza with no information
@@ -42,10 +40,7 @@ Feature: Order a pizza
     Then I should NOT see two pizzas named "Pizza Same" with a size of "30 inches", "0" toppings ordered and ordered status of "true"
 
   Scenario: Create a pizza but do not order it
-    Given I create an unordered pizza with the following information
-      | Name | Pizza Unordered |
-      | Size | 25 inches  |
-      And I select "All orders"
+    Given I create a pizza but do not order it
     Then the pizza named "Pizza Unordered" with the size of "25 inches", "0" toppings ordered and ordered status of "false" should have been ordered
 
   Scenario: Order a pizza with toppings

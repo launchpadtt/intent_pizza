@@ -72,6 +72,13 @@ Then /^(I )?(O|o)rder a valid pizza$/ do |arg1, arg2|
   step "I order a pizza with the following information", table(%{
       | Name | Pizza 1   |  
       | Size | 30 inches |})
-  step %{the pizza named "Pizza 1" with the size of "30 inches", "0" toppings ordered and ordered status of "true" should have been ordered}
+  #step %{the pizza named "Pizza 1" with the size of "30 inches", "0" toppings ordered and ordered status of "true" should have been ordered}
 end
 
+Given /^(I )?(C|c)reate(d)? a pizza but do not order it$/ do |arg1, arg2, arg3|
+  step "I create an unordered pizza with the following information", table(%{
+    | Name | Pizza Unordered |
+    | Size | 25 inches  |})
+  step %{I select "All orders"}
+  #step %{the pizza named "Pizza Unordered" with the size of "25 inches", "0" toppings ordered and ordered status of "false" should have been ordered}
+end
