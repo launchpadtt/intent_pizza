@@ -58,21 +58,35 @@ Create a user with the same e-mail address twice - DONE - Cucumber
 
 Pizza Ordering
 
-Ordering a valid pizza
+Ordering a valid pizza - DONE - Cucumber
 
-Ordering a pizza with no information
+Ordering a pizza with no information - DONE - Cucumber
 
-Ordering a pizza with no name
+Ordering a pizza with no name - DONE - Cucumber
 
-Ordering a pizza with no size
+Ordering a pizza with no size - DONE - Cucumber
 
-Ordering a pizza with an invalid size
+Ordering a pizza with an invalid size - DONE - Cucumber
 
-Ordering a pizza with the same name as an existing pizza order
+Ordering a pizza with the same name as an existing pizza order - DONE - Cucumber
+
+Order a pizza with toppings
+
+Create a pizza but do not order it
 
 Editing Pizza Orders
 
+Show an existing unordered pizza order
 
+Change the name of an existing unordered pizza order
+
+Change the size of an existing unordered pizza order
+
+Remove an unordered pizza
+
+Add a topping
+
+Remove an existing topping - (this fails, there's no template)
 
 Edit Account
 

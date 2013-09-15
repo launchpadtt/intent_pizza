@@ -12,34 +12,42 @@ Feature: Order a pizza
     Given I order a pizza with the following information
       | Name | Pizza 1   |  
       | Size | 30 inches |
-    Then the pizza named "Pizza 1" with the size of "30 inches" should have been ordered
+    Then the pizza named "Pizza 1" with the size of "30 inches", "0" toppings ordered and ordered status of "true" should have been ordered
   
   Scenario: Order a pizza with no information
     Given I order a pizza with the following information
       | Name |  |
       | Size |  |
-    Then no pizza should have been ordered
+    Then the pizza named "" with the size of "", "0" toppings ordered and ordered status of "true" should NOT have been ordered
 
   Scenario: Order a pizza with no name
     Given I order a pizza with the following information
       | Name |           |
       | Size | 20 inches |
-    Then no pizza should have been ordered
+    Then the pizza named "" with the size of "20 inches", "0" toppings ordered and ordered status of "true" should NOT have been ordered
 
   Scenario: Order a pizza with no size
     Given I order a pizza with the following information
       | Name | Pizza with no size |
       | Size |                    |
-    Then no pizza should have been ordered
+    Then the pizza named "Pizza with no size" with the size of "", "0" toppings ordered and ordered status of "true" should NOT have been ordered
 
   Scenario: Order a pizza with the same name as an existing pizza order
     Given I order a pizza with the following information
       | Name | Pizza Same |
       | Size | 30 inches  |
-    Then I order a pizza with the following information
-      | Name | Pizza Same |
-      | Size | 30 inches  |
+      And I place another order for a pizza with the following information
+        | Name | Pizza Same |
+        | Size | 30 inches  |
+    Then I should NOT see two pizzas named "Pizza Same" with a size of "30 inches", "0" toppings ordered and ordered status of "true"
+
+  Scenario: Create a pizza but do not order it
+    Given I create an unordered pizza with the following information
+      | Name | Pizza Unordered |
+      | Size | 25 inches  |
+      And I select "All orders"
+    Then the pizza named "Pizza Unordered" with the size of "25 inches", "0" toppings ordered and ordered status of "false" should have been ordered
 
   Scenario: Order a pizza with toppings
 
-  Scenario: Create a pizza but do not order it
+  
