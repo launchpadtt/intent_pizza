@@ -36,6 +36,10 @@ Then /^The unordered pizza should be created$/ do |fields|
   end
 end
 
+Then /^the pizza should be displayed with the following details:$/ do |fields|
+  step %{The unordered pizza should be created}, fields
+end
+
 Then /^I order the pizza$/ do
   step %{I select "Order this pizza"}
 end
@@ -75,10 +79,10 @@ Then /^(I )?(O|o)rder a valid pizza$/ do |arg1, arg2|
   #step %{the pizza named "Pizza 1" with the size of "30 inches", "0" toppings ordered and ordered status of "true" should have been ordered}
 end
 
-Given /^(I )?(C|c)reate(d)? a pizza but do not order it$/ do |arg1, arg2, arg3|
+Given /^(I )?(C|c)reate(d)? a pizza but (do|did) not order it$/ do |arg1, arg2, arg3, arg4|
   step "I create an unordered pizza with the following information", table(%{
     | Name | Pizza Unordered |
-    | Size | 25 inches  |})
+    | Size | 25 inches       |})
   step %{I select "All orders"}
   #step %{the pizza named "Pizza Unordered" with the size of "25 inches", "0" toppings ordered and ordered status of "false" should have been ordered}
 end

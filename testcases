@@ -70,9 +70,9 @@ Ordering a pizza with an invalid size - DONE - Cucumber
 
 Ordering a pizza with the same name as an existing pizza order - DONE - Cucumber
 
-Order a pizza with toppings
+Order a pizza with toppings - DONE - Cucumber
 
-Create a pizza but do not order it
+Create a pizza but do not order it - DONE - Cucumber
 
 Editing Pizza Orders
 
