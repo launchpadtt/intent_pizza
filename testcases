@@ -74,19 +74,36 @@ Order a pizza with toppings - DONE - Cucumber
 
 Create a pizza but do not order it - DONE - Cucumber
 
-Editing Pizza Orders
+Editing Pizza Orders - DONE - Cucumber
 
-Show an existing unordered pizza order
+Show an existing unordered pizza order - DONE - Cucumber
 
-Change the name of an existing unordered pizza order
+Change the name of an existing unordered pizza order - DONE - Cucumber
 
-Change the size of an existing unordered pizza order
+Change the size of an existing unordered pizza order - DONE - Cucumber
 
-Remove an unordered pizza
+Remove an unordered pizza - DONE - Cucumber
 
-Add a topping
+Add a topping - DONE - Cucumber
 
-Remove an existing topping - (this fails, there's no template)
+Remove an existing topping - DONE - Cucumber
 
 Edit Account
 
+Don't change any details and go back to profile - DONE - Cucumber
+
+Change the email - DONE - Cucumber
+
+Change the password - DONE - Cucumber
+
+Use different passwords in password and confirmation - DONE - Cucumber
+
+Change username to an invalid email - DONE - Cucumber
+
+Change username to email that is too long - DONE - Cucumber
+
+Change username to password that is too short - DONE - Cucumber
+
+Change username to password that is too long - DONE - Cucumber
+
+Change username to email that is too short - DONE - Cucumber
