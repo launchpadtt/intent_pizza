@@ -1,109 +1,144 @@
 Test Plan
 
+The testcases are written using Cucumber (with Capybara)
+
+Each test suite corresponds to a feature and each testcase corresponds to a scenario
+
+Only one testcase is passing where it should be failing which is the testcase "Remove an unordered pizza".
+This is due to a regex issue that I could not diagnose in time for the 5 day deadline.   
+
+Some of the cases that are failing are due to constraints that I think the application should have which it
+doesn't actually have. These include the size limit on the password, the uniqueness of the pizza order names,
+the uniqueness on the topping names etc. I was not supplied with documentation on what those limitations should
+actually be, so assumptions were made based on reasonable expectations.
+
+There are cases where the expected results were not checked that would have otherwise been checked since it is
+debatable whether they can be considered user facing side effects. These are primarily instances with forms
+that should stay on their original URL when they return form errors. Instead the URL changes to the URL of the
+resultant page even though it didn't actually successful complete the form. This does result in the bugs with the
+login however.
+
+The major bugs in the app that were found are below. With the exception mentioned above, the testcases uncover
+these bugs:
+
+* The Create a New user link just takes you to the account page when you've already logged in, instead of taking
+  you to the page to Create a New User
+* If you're already logged in the login page takes you to the account of the previous login even though you log
+  in with a different user
+* The Remove link for a pizza doesn't remove the pizza. It takes you to the details page of the pizza
+* The Remove link for a topping doesn't have a view. It just takes you to a Ruby on Rails error page.
+
+The only other check that was not completeable in the 5-day deadline was simulating restarting the capybara session
+in order to run another login. This is needed for the edit account testcases.
+
+------------------------------------------------------------
 Login
+------------------------------------------------------------
 
-Login User Page should load successfully - DONE - Cucumber
+Login User Page should load successfully
 
-Login a valid user - DONE - Cucumber
+Login a valid user
 
-Login a user with no login details - DONE - Cucumber
+Login a user with no login details
 
-Login a user with no password - DONE - Cucumber
+Login a user with no password
 
-Login a user with no e-mail address - DONE - Cucumber
+Login a user with no e-mail address
 
-Login a user with a user that doesn't exist - DONE - Cucumber
+Login a user with a user that doesn't exist
 
-Login a user with an invalid password - There really should be invalid password characters, so not applicable. - DONE - Cucumber
+Login a user with an invalid e-mail address
 
-Login a user with an invalid e-mail address - DONE - Cucumber
+Login a user with an e-mail address that is too long
 
-Login a user with an e-mail address that is too long - DONE - Cucumber
-
-Login a user with a password that is too long - DONE - Cucumber
+Login a user with a password that is too long
 
 Login with a different user after already having logged in
 
+------------------------------------------------------------
 Create
+------------------------------------------------------------
 
-Create a user page should load successfully - DONE - Cucumber
+Create a user page should load successfully
 
-Create a valid user - DONE - Cucumber
+Create a valid user
 
-Create a user with no login details - DONE - Cucumber
+Create a user with no login details
 
-Create a user with an invalid e-mail address - DONE - Cucumber
+Create a user with an invalid e-mail address
 
-Create a user with an invalid password - decided against it since there really shouldn't be any invalid password characters
+Create a user with no e-mail address
 
-Create a user with no e-mail address - DONE - Cucumber
+Create a user with no password
 
-Create a user with no password - DONE - Cucumber
+Create a user whose e-mail address and password are the same
 
-Create a user whose e-mail address and password are the same - DONE - Cucumber
+Create a user with an e-mail address that is too long
 
-Create a user with an e-mail address that is too long - DONE - Cucumber
+Create a user with a password that is too long
 
-Create a user with a password that is too long - DONE - Cucumber
+Create a user with an e-mail address that is too short
 
-Create a user with an e-mail address that is too short - DONE - Cucumber
+Create a user with a password that is too short
 
-Create a user with a password that is too short - DONE - Cucumber
+Create a user where the password and password confirmation are different
 
-Create a user where the password and password confirmation are different - DONE - Cucumber
+Visiting create a new user page after having already created a new user
 
-Visiting create a new user page after having already created a new user - DONE - Cucumber
+Create a user with the same e-mail address twice
 
-Create a user with the same e-mail address twice - DONE - Cucumber
-
+------------------------------------------------------------
 Pizza Ordering
+------------------------------------------------------------
 
-Ordering a valid pizza - DONE - Cucumber
+Ordering a valid pizza
 
-Ordering a pizza with no information - DONE - Cucumber
+Ordering a pizza with no information
 
-Ordering a pizza with no name - DONE - Cucumber
+Ordering a pizza with no name
 
-Ordering a pizza with no size - DONE - Cucumber
+Ordering a pizza with no size
 
-Ordering a pizza with an invalid size - DONE - Cucumber
+Ordering a pizza with an invalid size
 
-Ordering a pizza with the same name as an existing pizza order - DONE - Cucumber
+Ordering a pizza with the same name as an existing pizza order
 
-Order a pizza with toppings - DONE - Cucumber
+Order a pizza with toppings
 
-Create a pizza but do not order it - DONE - Cucumber
+Create a pizza but do not order it
 
-Editing Pizza Orders - DONE - Cucumber
+Editing Pizza Orders
 
-Show an existing unordered pizza order - DONE - Cucumber
+Show an existing unordered pizza order
 
-Change the name of an existing unordered pizza order - DONE - Cucumber
+Change the name of an existing unordered pizza order
 
-Change the size of an existing unordered pizza order - DONE - Cucumber
+Change the size of an existing unordered pizza order
 
-Remove an unordered pizza - DONE - Cucumber
+Remove an unordered pizza
 
-Add a topping - DONE - Cucumber
+Add a topping
 
-Remove an existing topping - DONE - Cucumber
+Remove an existing topping
 
+------------------------------------------------------------
 Edit Account
+------------------------------------------------------------
 
-Don't change any details and go back to profile - DONE - Cucumber
+Don't change any details and go back to profile
 
-Change the email - DONE - Cucumber
+Change the email
 
-Change the password - DONE - Cucumber
+Change the password
 
-Use different passwords in password and confirmation - DONE - Cucumber
+Use different passwords in password and confirmation
 
-Change username to an invalid email - DONE - Cucumber
+Change username to an invalid email
 
-Change username to email that is too long - DONE - Cucumber
+Change username to email that is too long
 
-Change username to password that is too short - DONE - Cucumber
+Change username to password that is too short
 
-Change username to password that is too long - DONE - Cucumber
+Change username to password that is too long
 
-Change username to email that is too short - DONE - Cucumber
+Change username to email that is too short
