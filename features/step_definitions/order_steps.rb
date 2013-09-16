@@ -64,12 +64,20 @@ Then /^the pizza named "(.*?)" with the size of "(.*?)", "(.*?)" toppings ordere
 end
 
 Then /^the pizza named "(.*?)" with the size of "(.*?)", "(.*?)" toppings ordered and ordered status of "(.*?)" should NOT have been ordered$/ do |pizza_name, pizza_size, toppings_no, ordered|
-  assert page.body.match(/Name.*Size.*Number of toppings.*Order placed?/m)
-  assert !page.body.match(/#{pizza_name}.*#{pizza_size}.*#{toppings_no}.*#{ordered}/m)
+  assert page.body.match(/<th>Name<\/th>\s*<th>Size<\/th>\s*<th>Number of toppings<\/th>\s*<th>Order placed\?<\/th>/m)
+  assert !page.body.match(/<td>#{pizza_name}<\/td>\s*<td>#{pizza_size}<\/td>\s*#{toppings_no}<\/td>\s*#{ordered}/m)
 end
 
 Then /^I should NOT see two pizzas named "(.*?)" with a size of "(.*?)", "(.*?)" toppings ordered and ordered status of "(.*?)"$/ do |pizza_name, pizza_size, toppings_no, ordered|
   assert page.body.scan(/<td>#{pizza_name}<\/td>\s*<td>#{pizza_size}<\/td>\s*<td>#{toppings_no}<\/td>\s*<td>#{ordered}/m).count == 1
+end
+
+Then /^I should NOT see the pizza details page$/ do
+  assert !page.body.match(/Name:.*Size:.*Toppings:.*Name.*Double order/m)
+end
+
+Then /^I should see the pizza details page$/ do
+  assert page.body.match(/Name:.*Size:.*Toppings:.*Name.*Double order/m)
 end
 
 Then /^(I )?(O|o)rder a valid pizza$/ do |arg1, arg2|
