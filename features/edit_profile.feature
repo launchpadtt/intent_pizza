@@ -13,11 +13,13 @@ Feature: Edit Profile Information
       And I select "My Profile"
     Then I should be on the "account" page
       And I should see "Login: testuser@validdomain.com" on the page
+      And the user with the name "testuser@validdomain.com" should be present
 
   Scenario: Change the email
     Given I edit the profile with the following fields
         | Email | testuseredited@validdomain.com |
     Then I should see "Login: testuseredited@validdomain.com" on the page
+      And the user with the name "testuseredited@validdomain.com" should be present
 
   Scenario: Change the password
     Given I edit the profile with the following fields
@@ -37,6 +39,7 @@ Feature: Edit Profile Information
     Then I should see "Email should look like an email address." on the page
     When I select "My Profile"
     Then I should see "Login: testuser@validdomain.com" on the page
+      And the user with the name "testuser@validdomain.com" should be present
 
   Scenario: Change username to email that is too long
     Given I edit the profile with the following fields
@@ -44,6 +47,7 @@ Feature: Edit Profile Information
     Then I should see "Email is too long (maximum is 100 characters)" on the page
     When I select "My Profile"
     Then I should see "Login: testuser@validdomain.com" on the page
+      And the user with the name "testuser@validdomain.com" should be present
 
   Scenario: Change password to password that is too short
     Given I edit the profile with the following fields
@@ -65,4 +69,5 @@ Feature: Edit Profile Information
     Then I should see "Email should look like an email address." on the page
     When I select "My Profile"
     Then I should see "Login: testuser@validdomain.com" on the page
+      And the user with the name "testuser@validdomain.com" should be present
   
